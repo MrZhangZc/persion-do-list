@@ -1,0 +1,29 @@
+{
+  "name": "persion-do-list",
+  "version": "0.0.1",
+  "description": "typescript koa2 react ant",
+  "main": "index.js",
+  "repository": "git@github.com:MrZhangZc/persion-do-list.git",
+  "author": "zhangzhichao <jiayouzzc@126.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "nodemon dist/server.js",
+    "build": "npm run tslint && npm run build-ts",
+    "build-ts": "tsc",
+    "watch": "npm run tslint && npm run watch-ts",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.48",
+    "@types/koa-router": "^7.0.40",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
+  }
+}
