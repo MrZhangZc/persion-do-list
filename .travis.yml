@@ -1,0 +1,7 @@
+language : node_js
+node_js :
+ - 10
+env:
+  - PRO_TAG= git tag
+script:
+  - console.log($PRO_TAG)
