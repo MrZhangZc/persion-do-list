@@ -11,17 +11,26 @@
     "serve": "nodemon dist/server.js",
     "build": "npm run tslint && npm run build-ts",
     "build-ts": "tsc",
-    "watch": "npm run tslint && npm run watch-ts",
+    "watch": "npm run watch-ts",
     "watch-ts": "tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "dependencies": {
+    "glob": "^7.1.4",
     "koa": "^2.7.0",
-    "koa-router": "^7.4.0"
+    "koa-body": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.5.13",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
+    "@types/glob": "^7.1.1",
     "@types/koa": "^2.0.48",
     "@types/koa-router": "^7.0.40",
+    "@types/koa-static": "^4.0.1",
+    "@types/mongoose": "^5.5.5",
+    "@types/ramda": "^0.26.9",
     "ts-node": "^8.2.0",
     "tslint": "^5.17.0",
     "typescript": "^3.5.1"

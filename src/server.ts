@@ -1,15 +1,26 @@
 import * as Koa from 'koa'
-import * as Router from 'koa-router'
+import * as R from 'ramda'
+import { resolve } from 'path'
+import config from './config'
 
-const app = new Koa()
-const router = new Router()
+const r = (url:string) => resolve(__dirname, url)
+const MIDDLEWARES = ['mongo', 'common', 'router']
 
-router.get('/*', async (ctx) => {
-    ctx.body = 'Hello ZZCHmaaa!'
-});
+const userMiddlewares = (app:Koa) => {
+  return R.map(R.compose(
+    R.map((i:any) => i(app)),
+    require,
+    (i:any) => `${r('./middlewares')}/${i}`
+  ))
+}
 
-app.use(router.routes())
+async function start (){
+  const app = new Koa()
+  const { port } = config
+  await userMiddlewares(app)(MIDDLEWARES)
+  app.listen(port, () => {
+    console.log(`项目成功运行在${port}端口`)
+  })
+}
 
-app.listen(5000)
-
-console.log('Server running on port 3000')
+start()
